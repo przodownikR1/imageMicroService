@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org" th:lang="${#locale.language}">
+
+<head th:fragment="header-include">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       <!--  <link th:href="@{/favicon.ico}" rel='icon' type='image/x-icon'/> -->
+        <title th:text="${title}">thymeleafPoc</title>
+        <link rel="shortcut icon" th:href="@{/static/favicon.ico}" href="../../resources/static/favicon.ico" />
+        <link th:href="@{/assets/bootstrap/3.3.5/css/bootstrap.css}" rel="stylesheet"/>
+        <link th:href="@{/assets/bootstrap/3.3.5/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /> 
+         
+</head>
+</html>

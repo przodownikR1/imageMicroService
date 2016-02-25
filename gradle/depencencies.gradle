@@ -1,0 +1,168 @@
+buildscript {
+   ext {
+        springBootVersion = '1.3.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+          }
+        jcenter()
+    }
+    dependencies {  
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE")
+    }
+}    
+  
+
+apply plugin: 'spring-boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    camelVersion = '2.15.2'
+    hawtioVersion = '2.0.0'
+    junitVersion = "4.12"
+    hamcrestVersion = "1.3"
+    mockitoVersion  = "1.9.5"
+    slf4jVersion = "1.7.12"
+    logbackVersion = "1.1.3"
+    springVersion = "4.2.4.RELEASE"
+    springDataRestWebmvcVersion = "2.1.1.RELEASE"
+    hibernateVersion = "4.3.8.Final"
+    springDataJPAVersion = "1.8.0.RELEASE"
+    javaxValidationVersion = "1.1.0.Final"
+    hibernateValidatorVersion = "5.1.1.Final"
+    servletVersion = "3.1.0"
+    jacksonMapperVersion = "1.9.13"
+    lombokVersion = "1.16.4"
+    guavaVersion = "18.0"
+    aspectJVersion = "1.7.4"
+    javaVersion = "1.8"
+    codahale="3.0.2"
+    httpClientVersion="4.3.5"
+    javamelodyVersion = "1.52.0"
+}
+
+
+dependencies {
+   // compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    compile('org.springframework.boot:spring-boot-starter-cache')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    compile 'org.jsoup:jsoup:1.8.3'
+
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.data:spring-data-rest-hal-browser')
+    
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-starter-hateoas')   
+    compile('org.springframework.retry:spring-retry')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-validation')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.6+'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6+'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.6+'
+    
+    compile 'commons-fileupload:commons-fileupload:1.3.1'
+    compile 'org.imgscalr:imgscalr-lib:4.2'
+    
+    compile 'org.springframework:spring-core'
+    compile 'org.springframework:spring-beans'
+    compile 'org.springframework:spring-context'
+    compile 'org.springframework:spring-orm'
+    compile 'org.springframework:spring-tx'
+    compile 'org.springframework:spring-aop'
+    compile 'org.projectlombok:lombok:1+'
+    compile 'com.google.guava:guava:18.+'
+    compile 'org.hibernate:hibernate-jpamodelgen:5.1.0.Final'
+    compile 'javax.validation:validation-api:1+'
+    compile 'org.hibernate:hibernate-validator:5+'
+    compile 'org.hibernate:hibernate-core:5+'
+    compile 'org.hibernate:hibernate-entitymanager:5.0+'
+    compile 'org.lazyluke:log4jdbc-remix:0.2.7'
+    compile 'com.h2database:h2'
+    compile 'org.webjars:bootstrap:3.3.5'
+    compile 'org.webjars:jquery:2.1.4'
+    compile 'org.webjars:jquery-ui:1.11.4'
+    compile 'org.webjars:jquery-ui-themes:1.11.4'
+    compile ("org.webjars.bower:jquery.bootgrid:1.2.0") {
+        exclude group: 'org.webjars.bower'
+    }
+    
+    compile("io.springfox:springfox-swagger2:2.3.1")
+    compile('io.springfox:springfox-swagger-ui:2.3.1')
+    
+    //compile 'com.github.tomakehurst:wiremock:1.57'
+    
+    
+    compile 'commons-lang:commons-lang:2.6'
+    
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+    compile 'org.apache.httpcomponents:httpclient:4+'
+    compile 'org.apache.httpcomponents:fluent-hc:4+'
+    compile 'org.apache.httpcomponents:httpasyncclient:4.1.1'
+    
+     
+  //  jpametamodel ('org.hibernate:hibernate-jpamodelgen:5.0.6.Final')
+    testCompile('org.springframework.boot:spring-boot-starter-test'){
+        exclude module: 'hamcrest-core'
+        exclude module: 'hamcrest-library'
+        exclude module: 'mockito-core'
+    }
+    testCompile 'org.mockito:mockito-all:1+'
+    testCompile 'com.jayway.jsonpath:json-path'
+    testCompile('junit:junit:4.12') {
+            exclude module: 'hamcrest-core'
+        }
+    testCompile 'org.assertj:assertj-core:3+'
+    testCompile 'com.jayway.awaitility:awaitility-java8:1.6.1'
+    testCompile 'com.jayway.awaitility:awaitility:1.6+'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7+'
+    testCompile 'net.sf.json-lib:json-lib:2.4:jdk15'
+    testCompile('org.springframework.restdocs:spring-restdocs-mockmvc:1.0.0.RELEASE')
+    //springLoaded 'org.springframework:springloaded:1.2.5.RELEASE' 
+    
+}
+
+test {
+    systemProperties 'property': 'value'
+    testLogging.showStandardStreams = true
+}
+
+configurations {
+    all*.exclude group: "commons-logging", module: "commons-logging"
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'org.springframework') {
+            details.useVersion '4.2.4.RELEASE'
+        }
+        
+        if (details.requested.group == 'ch.qos.logback') {
+            details.useVersion '1.1.3'
+        }
+        
+        if (details.requested.group == 'org.slf4j') {
+            details.useVersion '1.7.13'
+        }     
+        if (details.requested.name == 'springloaded') {
+            details.useVersion '1.2.5.RELEASE'
+        }
+      
+        if (details.requested.group == 'org.hibernate') {
+            details.useVersion '5.0.2.Final'
+        }
+    }
+}

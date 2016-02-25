@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org"
+             xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+             layout:decorator="fragments/layout">
+<body>
+<div layout:fragment="content">
+
+<h1 th:text="${message}">Hello default html</h1>
+
+<h2 th:text="${error}"></h2>
+
+
+<div class="table-responsive">
+			<table border="1" class="table table-striped table-bordered table-condensed table-hover">
+			<caption data-th-text="#{role.table.title}">Temp table title</caption>
+				<thead>
+					<tr class="info">
+						<th th:text="#{role.id}">Id</th>
+						<th th:text="#{role.name}">name</th>
+						<th th:text="#{role.desc}">desc</th>
+						 <th th:text="#{product.edit}">Edit</th>
+                        <th th:text="#{product.delete}">Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="role : ${roleList}">
+						<td th:disabled="true" th:text="${role.id}"  />
+						<td th:disabled="true" th:text="${role.name}"  />
+						<td th:disabled="true" th:text="${role.desc}" />
+					    <td><a class="btn" href="#" th:href="@{'/role/' + ${role.id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+				        <td><a class="btn" href="#"  th:href="@{'/role/delete/' + ${role.id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+			
+					</tr>
+					<tr > 
+					 <td colspan="7">
+					  <div th:text="#{role.add}">Add role</div>
+					  <a th:href="@{/role}">
+					  <span class="glyphicon glyphicon-plus"></span></a>
+					  </td>
+					</tr>
+				</tbody>
+			</table>
+</div>
+
+
+
+
+</div>
+</body>
+</html>

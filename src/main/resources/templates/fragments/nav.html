@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:tiles="http://www.thymeleaf.org"
+    th:lang="${#locale.language}">
+
+
+<head th:replace="/fragments/header-include :: header-include">
+        <link th:href="@{/assets/bootstrap/3.3.5/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+		<title th:text="${title}">demonstration application</title>
+</head>
+
+<body th:fragment="nav">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" >
+      <div class="navbar-inner">
+        <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand"  href="#" th:href="@{/}" th:text="#{nav.home}"><span class="glyphicon glyphicon-home"></span>Home</a>
+ 
+  </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+             
+              <li class="dropdown">
+                 <a href="" class="dropdown-toggle" data-toggle="dropdown" th:text="#{nav.profile}"><span class="glyphicon glyphicon-user"></span>Profile : <b class="caret"></b></a>
+                      <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+                              
+                                <li role="presentation" class="dropdown-header">User profile</li>
+                                <li><a href="#" th:href="@{/secContext}"><span class="glyphicon glyphicon-user"></span>Wyświetl profil</a></li>
+                                <li><a href="#" th:href="@{/user/add}"><span class="glyphicon glyphicon-plus"></span>Dodaj  profil</a></li>
+                                 <li role="presentation" class="divider"></li>
+                                 <li role="presentation" class="dropdown-header">User action</li>
+                                <li><a href="#" th:href="@{/user/block}"><span class="glyphicon glyphicon-lock"></span>Blokuj użytkownika</a></li>
+                                <li><a href="#" th:href="@{/user/unblock}"><span class="glyphicon glyphicon-lock"></span>Odblokuj użytkownika</a></li>
+                                <li><a href="#" th:href="@{/user/sessions/}"><span class="glyphicon glyphicon-lock"></span>Sesje</a></li>
+                                
+                      </ul>
+                 
+                 </li>
+              <li class="divider-vertical"></li>  
+              <li class="dropdown">
+                 <a href="#" th:href="@{/userProfile/add}" class="dropdown-toggle" data-toggle="dropdown" th:text="#{nav.language}"><span class="glyphicon glyphicon-globe"></span>Języki<b class="caret"></b></a>
+                            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+                                <li><a href="?lang=pl"><span class="glyphicon glyphicon-globe"></span>pl</a></li>
+                                <li class="divider"></li>
+                                <li><a href="?lang=en"><span class="glyphicon glyphicon-globe"></span>en</a></li>
+                            </ul>
+              </li>
+            
+                 <li class="divider-vertical" />
+               <li class="dropdown">
+                 <a href="" class="dropdown-toggle" data-toggle="dropdown" th:text="#{nav.role}"><span class="glyphicon glyphicon-user"></span>Role : <b class="caret"></b></a>
+                      <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+                                <li role="presentation" class="dropdown-header" th:text="#{nav.role}">Uprawnienia</li>
+                                <li><a href="#" th:href="@{/role/}" th:text="#{nav.role.show}"><span class="glyphicon glyphicon-user"></span>show role</a></li>
+                                <li><a href="#" th:href="@{/role}" th:text="#{nav.role.edit}"><span class="glyphicon glyphicon-plus"></span>Add role</a></li>
+                      </ul>
+                 
+                 </li>
+                 
+                   <li class="divider-vertical" />   
+                <li ><a href="#" th:href="@{/}"><span class="glyphicon glyphicon-info-sign"  data-toggle="modal" data-target="#myModal"></span>PoC</a></li>
+                <li ><a href="#" th:href="@{/hello}"><span class="glyphicon glyphicon-info-sign"  data-toggle="modal" data-target="#myModal"></span>Hello</a></li>
+               
+                
+               
+               <li class="divider-vertical" />
+					<li>
+						<div
+							th:with="currentUser=${#httpServletRequest.userPrincipal?.principal}">
+							<div th:if="${currentUser != null}">
+
+								<form th:action="@{/logout}" method="post">
+									<button type="submit">Log out</button>
+								   	<div th:text="${currentUser.username}"></div>
+								  
+								</form>
+							</div>
+						</div>
+					</li>
+					
+				</ul>
+				 <form action="#" th:action="@{'/login'}" class="navbar-form navbar-right" role="search" method="POST" id="login-user-form">
+                       <p th:if="${param.error}">Wrong user or password</p>
+                        <input name="username" type="text" placeholder="login"  class="form-control" maxlength="50" id="username_or_email" size="25"
+                            autocomplete="on" /> <input class="form-control" name="password"
+                            type="password" maxlength="50" placeholder="Password"  id="j_password" size="25" autocomplete="off" />
+                            
+                        <button type="submit" class="btn btn-default navbar-btn">Sign in</button>
+          </form> 
+           
+          
+        </div>
+      </div>
+    </div>
+    <div th:replace="/fragments/footer-include :: footer-include">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" th:src="@{/assets/bootstrap/3.3.5/js/bootstrap.min.js}"/> 
+        <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js" th:src="@{/assets/jquery/2.1.4/jquery.min.js}"/> 
+    </div>
+    
+  </body>
+</html>

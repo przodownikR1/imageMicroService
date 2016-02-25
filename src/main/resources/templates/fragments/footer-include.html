@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:tiles="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org" th:lang="${#locale.language}">
+    
+
+<body>
+    <div th:fragment="footer-include">
+    <H3 th:text="${handlingTime}">czas ladowania </H3>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" th:src="@{/assets/bootstrap/3.3.5/js/bootstrap.min.js}"/> 
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js" th:src="@{/assets/jquery/2.1.4/jquery.min.js}"/>
+    </div>
+    
+</body>
+</html>
