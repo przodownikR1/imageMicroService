@@ -28,9 +28,6 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.rest.core.annotation.HandleAfterCreate;
-import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
-import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -54,18 +51,6 @@ public class JpaWebConfig {
 
     
     
-    @Component
-    @RepositoryEventHandler
-    public static class MyEntityEventHandler {
-        @HandleBeforeCreate
-        public void handleBeforeEntityCreate(Object e) {
-            System.out.printf("Before create %s\n", e);
-        }
-
-        @HandleAfterCreate
-        public void handleAfterEntityCreate(Object e) {
-            System.out.printf("After create %s\n", e);
-        }
-    }
+    
     
 }

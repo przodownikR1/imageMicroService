@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import pl.java.scalatech.service.bean.ImageTransformTask;
 import pl.java.scalatech.service.task.TransformTaskConsumer;
 import pl.java.scalatech.service.transform.ImageTransform;
 

@@ -57,8 +57,8 @@ dependencies {
 
     compile 'org.jsoup:jsoup:1.8.3'
 
-    compile('org.springframework.boot:spring-boot-starter-data-rest')
-    compile('org.springframework.data:spring-data-rest-hal-browser')
+    //compile('org.springframework.boot:spring-boot-starter-data-rest')
+    //compile('org.springframework.data:spring-data-rest-hal-browser')
     
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-hateoas')   

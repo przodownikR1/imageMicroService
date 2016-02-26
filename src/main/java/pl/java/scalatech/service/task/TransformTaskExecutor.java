@@ -13,7 +13,7 @@ import com.google.common.base.Stopwatch;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pl.java.scalatech.service.ImageTransformTask;
+import pl.java.scalatech.service.bean.ImageTransformTask;
 
 @Slf4j
 @RequiredArgsConstructor
