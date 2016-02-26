@@ -75,7 +75,7 @@ public class ImageUploadController {
 
     private void createThumbnail(MultipartFile file, BufferedImage bi, ProcessedImage image, ThumbnailType type) throws IOException {
         BufferedImage tempImg = imageTransform.resize(bi, type.getWidth(), type.getHeigth());
-        String fileName = file.getName() + "_" + type.name() + "." + image.getFormat().name().toLowerCase();
+        String fileName = file.getName() + "_" + type.name().toLowerCase() + "." + image.getFormat().name().toLowerCase();
         write(tempImg, image.getFormat().name(), new File(fileName));
     }
 
