@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum ThumbnailType {
     
-    SMALL(150,150),MIDDLE(250,250),LARGE(350,350),EXTRA(450,450);
+    SMALL(150,150),MIDDLE(250,250),LARGE(350,350),EXTRA(450,450),EXTRA_LARGE(900,900);
     @Getter
     private int width;
     @Getter

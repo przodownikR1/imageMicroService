@@ -47,7 +47,7 @@ public class ImageUploadController {
     @Autowired
     private ImageTransform imageTransform;
 
-    ThumbnailType[] tab = { ThumbnailType.EXTRA, ThumbnailType.SMALL };
+    ThumbnailType[] tab = { ThumbnailType.EXTRA, ThumbnailType.SMALL,ThumbnailType.LARGE,ThumbnailType.EXTRA_LARGE };
 
     @RequestMapping(value = "/", method = { RequestMethod.POST, RequestMethod.PUT }, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ApiOperation(value = "upload single file", httpMethod = "POST", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
