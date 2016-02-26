@@ -1,12 +1,16 @@
-package pl.java.scalatech.service;
-
+package pl.java.scalatech.service.transform;
+import static javax.imageio.ImageIO.read;
+import static javax.imageio.ImageIO.write;
 import static org.imgscalr.Scalr.OP_ANTIALIAS;
-
 import java.awt.image.BufferedImage;
-
+import java.io.File;
+import java.io.InputStream;
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
+
+import lombok.SneakyThrows;
+import pl.java.scalatech.service.fixed.ImageFormat;
 
 @FunctionalInterface
 public interface ImageTransform {
@@ -45,4 +49,19 @@ public interface ImageTransform {
         }
         return resizedImg;
     }
+    @SneakyThrows        
+    public default BufferedImage convertFile2Image(File file){
+        return read(file);
+    }
+    
+    @SneakyThrows        
+    public default BufferedImage convertInputStreamImage(InputStream is){
+        return read(is);
+    }
+    @SneakyThrows    
+    public default void saveBufferedImageToFile(BufferedImage image, ImageFormat format, File desc){
+        write(image, format.name(), desc);
+    }
+    
+    
 }

@@ -32,7 +32,7 @@ public final class FileOperations {
             return readBytes;
         } catch (IOException e) {
             log.error(" {} ", e);
-            throw new IOperationException("convert file to byte [] !!! :", e);
+            throw new IOOperationException("convert file to byte [] !!! :", e);
         }
     }
 
@@ -42,7 +42,7 @@ public final class FileOperations {
             text = CharStreams.toString(reader);
         } catch (IOException e) {
             log.error(" {} ", e);
-            throw new IOperationException("convert inputStream to String !!! :", e);
+            throw new IOOperationException("convert inputStream to String !!! :", e);
         }
         return text;
     }
@@ -52,7 +52,7 @@ public final class FileOperations {
             return ByteStreams.toByteArray(is);
         } catch (IOException e) {
             log.error("{}", e);
-            throw new IOperationException("convert inputStream to byte [] !!! :", e);
+            throw new IOOperationException("convert inputStream to byte [] !!! :", e);
         }
     }
 
