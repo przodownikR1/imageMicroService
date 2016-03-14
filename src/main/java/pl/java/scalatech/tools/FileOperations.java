@@ -24,6 +24,10 @@ public final class FileOperations {
     public final static String FILE_NAME = "filename";
     public final static String FILE_EXT = "fileExt";
 
+    private FileOperations(){
+        throw new AssertionError();
+    }
+    
     public static byte[] fileToBytes(File f) {
         try (FileInputStream input = new FileInputStream(f)) {
             ByteSource byteSource = Files.asByteSource(f);

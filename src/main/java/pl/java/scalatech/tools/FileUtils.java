@@ -11,6 +11,10 @@ import java.util.stream.Stream;
 
 public final class  FileUtils {
 
+    private FileUtils(){
+        throw new AssertionError();
+    }
+    
     public static List<File> findFilesIn(File rootDir, Predicate<File> predicate) {
         ArrayList<File> collected = new ArrayList<>();
         walk(rootDir, predicate, collected);
