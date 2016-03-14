@@ -14,8 +14,7 @@ apply plugin: 'org.sonarqube'
 
 
 sonarqube {
-    properties {        
-        property "sonar.exclusions", "src/main/java/pkobp/esb/kdpw/pkoccp/**"
+    properties {       
         //property "sonar.analysis.mode", "issues"
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.issuesReport.console.enable", "true"
