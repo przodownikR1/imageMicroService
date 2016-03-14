@@ -6,24 +6,27 @@ buildscript {
           }
     }
     dependencies {
-        classpath "org.sonarqube.gradle:gradle-sonarqube-plugin:1.1"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:1.2"
     }
 }
 
 apply plugin: 'org.sonarqube'
 
+
 sonarqube {
-    properties {
-        property "sonar.analysis.mode", "issues"
+    properties {        
+        property "sonar.exclusions", "src/main/java/pkobp/esb/kdpw/pkoccp/**"
+        //property "sonar.analysis.mode", "issues"
+        property "sonar.sourceEncoding", "UTF-8"
         property "sonar.issuesReport.console.enable", "true"
-        property "sonar.issuesReport.html.enable", "true"
-        
+        //property "sonar.issuesReport.html.enable", "true"        
         property "sonar.projectKey", sonarProjectKey
         property "sonar.projectName", sonarProjectName
-        property "sonar.host.url", sonarHostUrl
-        property "sonar.jdbc.url", sonarJdbcUrl
-        property "sonar.jdbc.driverClassName", sonarJdbcDriverClassName
-        property "sonar.jdbc.username", sonarJdbcUsername
-        property "sonar.jdbc.password", sonarJdbcPassword
+        property "sonar.log.level","DEBUG"
+        property "sonar.java.source property", "1.8"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.login", "sonar"
+        property "sonar.password", "sonar"
+       
     }
   }
