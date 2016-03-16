@@ -91,3 +91,5 @@ gc.log
 gc.log.0.current
 in.out
 microImageService.log
+/upload-dir
+upload-dir/
