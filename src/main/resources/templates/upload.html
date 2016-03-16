@@ -12,7 +12,29 @@
 		</div>
 	</div>
 </form>
+<div>
+            <table border="1" class="table table-striped table-bordered table-condensed table-hover">
+            <caption data-th-text="#{file.list}">Temp table title</caption>
+                <thead>
+                    <tr class="info">
+                        <th th:text="#{file.id}">Id</th>
+                        <th th:text="#{file.fileName}">name</th>
+                        <th th:text="#{file.size}">size</th>
+                         <th th:text="#{file.url}">url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="file : ${files}">
+                        <td th:disabled="true" th:text="${file.id}"  />
+                        <td th:disabled="true" th:text="${file.fileName}"  />
+                        <td th:disabled="true" th:text="${file.size}" />      
+                         <td><a class="btn" href="#"  th:href="@{'/photoLoader/disk/'+${file.fileName}+'/photo'}"><span class="glyphicon glyphicon-trash"></span></a></td>                
+                        
+                                                       
+                    </tr>                    
+                </tbody>
+            </table>
+    </div>
 </div>
- 
 </body>
 </html>

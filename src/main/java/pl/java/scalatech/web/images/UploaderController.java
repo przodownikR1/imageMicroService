@@ -34,6 +34,9 @@ import pl.java.scalatech.tools.FileOperations;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 50, maxRequestSize = 1024 * 1024 * 5 * 50)
 public class UploaderController {
    
+    
+    
+    
 
     @RequestMapping(value = "file", method = { RequestMethod.POST, RequestMethod.PUT }, params = "fileonly", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ApiOperation(value = "upload single file", httpMethod = "POST", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

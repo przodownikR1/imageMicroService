@@ -12,13 +12,16 @@
  */
 package pl.java.scalatech;
 
+import java.io.File;
 import java.util.stream.IntStream;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,11 +30,21 @@ import lombok.extern.slf4j.Slf4j;
 public class BootRest {
     private final static String ANONYMOUS = "anonymous";
 
+    public static String ROOT = "upload-dir";
+
+    @Bean
+    CommandLineRunner start() {
+        return (String[] args) -> {
+            new File(ROOT).mkdir();
+        };
+    }
+
     @PostConstruct
     public void init() {
-        IntStream.range(0, 10).forEach(index -> { log.info("++++ {}",index); }           );
+        IntStream.range(0, 10).forEach(index -> {
+            log.info("++++ {}", index);
+        });
     };
-    
 
     public static void main(String[] args) {
         SpringApplication.run(BootRest.class, args);
