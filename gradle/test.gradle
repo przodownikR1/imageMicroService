@@ -29,10 +29,11 @@ task integrationTest(type: Test) {
 
 
 pitest {
-    targetClasses = ['pl.java.scalatech.*']
+    targetClasses = ['pl.java.scalatech.service*']
     pitestVersion = "1.1.6"
     threads = 4
     outputFormats = ['XML', 'HTML']
+    
 }
 
 tasks.withType(Test) {
