@@ -2,22 +2,24 @@ apply plugin: 'net.saliman.cobertura'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
 
+
 cobertura {
     coverageFormats = ['html', 'xml']
+    
     if (project.plugins.hasPlugin('groovy')) {
         coverageSourceDirs = sourceSets.main.java.srcDirs + sourceSets.main.groovy.srcDirs
     } else {
         coverageSourceDirs = sourceSets.main.java.srcDirs
     }
 }
-
+/*
 test.doLast {
     def integrationTestsRoot = new File(project.buildDir, "test/de.gliderpilot.gradle.semanticrelease.SemanticReleasePluginIntegrationSpec")
     project.cobertura.coverageMergeDatafiles = integrationTestsRoot
             .listFiles({ it.isDirectory() } as FileFilter)
             .collect { new File(it, "cobertura.ser") }
             .findAll { it.exists() }
-}
+}*/
 
 jacocoTestReport {
     group = 'Reporting'

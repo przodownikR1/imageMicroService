@@ -29,7 +29,7 @@ task integrationTest(type: Test) {
 
 
 pitest {
-    targetClasses = ['pl.java.riscosoftware.*']
+    targetClasses = ['pl.java.scalatech.*']
     pitestVersion = "1.1.6"
     threads = 4
     outputFormats = ['XML', 'HTML']

@@ -18,10 +18,6 @@ tasks.withType(Pmd).each {task -> configure(task) {
     group = "pmd"
 }}
 
-
-
-
-
 jacoco {
     group = "jacoco"
     toolVersion = '0.7.1.201405082137'
@@ -38,13 +34,7 @@ jacocoTestReport {
         html.destination "${buildDir}/jacocoHtml"
     }
 }
-apply plugin: 'net.saliman.cobertura'
 
-
-cobertura {
-    coverageFormats = ['xml', 'html']
-    cobertura.coverageReportDir = file("coberturaReports")
-}
 
 pmd {
     ignoreFailures = true
@@ -55,7 +45,7 @@ pmd {
 
 task pmd(type: Pmd) {
     ruleSets = ["java-basic", "java-braces", "java-strings", "java-design", "java-unusedcode", "java-codesize","java-optimizations"]
-    source = fileTree('src/main/java')
+    source = fileTree('src/')
 
     reports {
         xml.enabled = true
